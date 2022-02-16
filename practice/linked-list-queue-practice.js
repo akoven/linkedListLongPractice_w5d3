@@ -90,9 +90,21 @@ class SinglyLinkedList {
     }
 
     reverse() {
-        // Returns a new reversed version of the linked list
+        let newArr = []
+        let curr = this.head;
+        while (curr) {
+            newArr.push(curr.value)
+            curr = curr.next;
+        }
 
-        // Write your hypothesis on the time complexity of this method here
+        let newList = new SinglyLinkedList();
+        newList.head = new SinglyLinkedNode(newArr[newArr.length - 1]);  //tail -> head
+        curr = newList.head;
+        for (let i = newArr.length - 2; i >= 0; i--) {
+            curr.next = new SinglyLinkedNode(newArr[i]);  //create new node with value from newArr
+            curr = curr.next;
+        }
+        return newList
     }
 
     reverseInPlace() {
