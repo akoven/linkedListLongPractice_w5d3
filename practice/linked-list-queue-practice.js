@@ -167,14 +167,14 @@ class DoublyLinkedList {
                 // console.log(leftPointer.value)
                 // console.log(rightPointer.value)
 
-                return leftPointer.value;
+                return leftPointer;
 
             }
             leftPointer = leftPointer.next;
         }
         // console.log(leftPointer.value)
         // console.log(rightPointer.value)
-        return leftPointer.value
+        return leftPointer
 
     }
 
@@ -196,7 +196,7 @@ newList.addToTail(2);
 newList.addToTail(3);
 newList.addToTail(4);
 newList.addToTail(5);
-console.log(newList.findMid())
+// console.log(newList.findMid().value)
 
 module.exports = {
     SinglyLinkedNode,
