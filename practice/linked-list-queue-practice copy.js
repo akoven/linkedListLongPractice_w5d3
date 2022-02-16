@@ -90,39 +90,41 @@ class SinglyLinkedList {
     }
 
     reverse() {
-        //grab values from old list
-        let newArr = []
+        let newList = new SinglyLinkedList();
+        let newArr =[];
         let curr = this.head;
+
         while (curr) {
             newArr.push(curr.value)
             curr = curr.next;
         }
 
-        //create new list with values from old list
-        let newList = new SinglyLinkedList();
-        newList.head = new SinglyLinkedNode(newArr[newArr.length - 1]);  //tail -> head
-        curr = newList.head;
-        for (let i = newArr.length - 2; i >= 0; i--) {
-            curr.next = new SinglyLinkedNode(newArr[i]);  //create new node with value from newArr
-            curr = curr.next;
+        let curr = newNode
+        for(let i = newArr.length - 1; i >= 0; i--){
+            let newNode = new SinglyLinkedNode(newArr[i]);
+            if(i === newArr.length -1){
+                newList.head = newNode
+            }else{
+
+            }
         }
-        return newList
+
+
+
+
+
+
+        //this is what we would have with the initial linked list
+        //this.head.next = newNode
+        //this.tail.next = null
+
+        // Write your hypothesis on the time complexity of this method here
     }
 
     reverseInPlace() {
-        //grab values from old list
-        let newArr = []
-        let curr = this.head;
-        while (curr) {
-            newArr.push(curr.value)
-            curr = curr.next;
-        }
-        //loop through the list again, assign each node new values
-        curr = this.head;
-        while (curr) {
-            curr.value = newArr.pop();
-            curr = curr.next;
-        }
+        // Reverses the linked list in-place
+
+        // Write your hypothesis on the time complexity of this method here
     }
 }
 
@@ -157,46 +159,25 @@ class DoublyLinkedList {
     }
 
     findMid() {
+        // Returns the middle node
+        // Implement this as a singly linked list then as a doubly linked list
+            // How do the implementation for singly and doubly vary if at all?
 
-        let rightPointer = this.tail;
-        let leftPointer = this.head;
-
-        while (rightPointer !== leftPointer) {
-            rightPointer = rightPointer.prev;
-            if(leftPointer === rightPointer){
-                // console.log(leftPointer.value)
-                // console.log(rightPointer.value)
-
-                return leftPointer.value;
-
-            }
-            leftPointer = leftPointer.next;
-        }
-        // console.log(leftPointer.value)
-        // console.log(rightPointer.value)
-        return leftPointer.value
-
+        // Write your hypothesis on the time complexity of this method here
     }
 
     reverse() {
+        // Returns a new reversed version of the linked list
 
         // Write your hypothesis on the time complexity of this method here
     }
 
     reverseInPlace() {
-
+        // Reverses the linked list in-place
 
         // Write your hypothesis on the time complexity of this method here
     }
 }
-
-let newList = new DoublyLinkedList()
-newList.addToTail(1);
-newList.addToTail(2);
-newList.addToTail(3);
-newList.addToTail(4);
-newList.addToTail(5);
-console.log(newList.findMid())
 
 module.exports = {
     SinglyLinkedNode,
