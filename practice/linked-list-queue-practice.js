@@ -30,34 +30,63 @@ class SinglyLinkedList {
     }
 
     listLength() {
-        // Returns the length of the list
-        // Implement in O(n) and in O(1) time complexity
+        let length = 0;
+        let curr = this.head;
+        while (curr) {
+            length++;
+            curr = curr.next;
+        }
+        return length
     }
 
     sumOfNodes() {
-        // Returns the sum of the values of all the nodes
-
-        // Write your hypothesis on the time complexity of this method here
+        let sum = 0;
+        let curr = this.head;
+        while (curr) {
+            sum += curr.value
+            curr = curr.next;
+        }
+        return sum
     }
 
     averageValue() {
-        // Returns the average value of all the nodes
-
-        // Write your hypothesis on the time complexity of this method here
+        let sum = 0;
+        let length = 0;
+        let curr = this.head;
+        while (curr) {
+            sum += curr.value;
+            length++;
+            curr = curr.next;
+        }
+        return sum / length
     }
 
     findNthNode(n) {
-        // Returns the node at the nth index from the head
-
-        // Write your hypothesis on the time complexity of this method here
+        let index = 0;
+        let curr = this.head;
+        while (curr) {
+            if (index === n) return curr;
+            index++;
+            curr = curr.next;
+        }
     }
 
     findMid() {
-        // Returns the middle node
-        // Implement this as a singly linked list then as a doubly linked list
-            // How do the implementation for singly and doubly vary if at all?
+        let length = 0;
+        let curr = this.head;
+        while (curr) {
+            length++;
+            curr = curr.next;
+        }
 
-        // Write your hypothesis on the time complexity of this method here
+        let index = 0;
+        curr = this.head;
+        let target = (length - 1) / 2 - ((length - 1) / 2) % 1;
+        while (curr) {
+            if (index === target) return curr;
+            index++;
+            curr = curr.next;
+        }
     }
 
     reverse() {
