@@ -90,6 +90,7 @@ class SinglyLinkedList {
     }
 
     reverse() {
+        //grab values from old list
         let newArr = []
         let curr = this.head;
         while (curr) {
@@ -97,6 +98,7 @@ class SinglyLinkedList {
             curr = curr.next;
         }
 
+        //create new list with values from old list
         let newList = new SinglyLinkedList();
         newList.head = new SinglyLinkedNode(newArr[newArr.length - 1]);  //tail -> head
         curr = newList.head;
@@ -108,9 +110,19 @@ class SinglyLinkedList {
     }
 
     reverseInPlace() {
-        // Reverses the linked list in-place
-
-        // Write your hypothesis on the time complexity of this method here
+        //grab values from old list
+        let newArr = []
+        let curr = this.head;
+        while (curr) {
+            newArr.push(curr.value)
+            curr = curr.next;
+        }
+        //loop through the list again, assign each node new values
+        curr = this.head;
+        while (curr) {
+            curr.value = newArr.pop();
+            curr = curr.next;
+        }
     }
 }
 
