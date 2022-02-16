@@ -34,17 +34,16 @@ class DoublyLinkedList {
     }
 
     addToTail(val) {
-        let newNode = new DoublyLinkedListNode(val)
+        let newNode = new DoublyLinkedNode(val);
         if(this.length > 0){
             this.tail.next = newNode
             newNode.prev = this.tail
             this.tail = newNode
         }else{
             this.head = newNode;
-            // this.tail = newNode;
+            this.tail = newNode;
         }
-        this.length++
-
+        this.length++;
         // Write your hypothesis on the time complexity of this method here
     }
 
