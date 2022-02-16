@@ -180,6 +180,28 @@ class DoublyLinkedList {
 
     reverse() {
 
+
+        let newArr = []
+        let curr = this.head;
+        while (curr) {
+            newArr.push(curr.value)
+            curr = curr.next;
+        }
+
+        //create new list with values from old list
+        let newList = new DoublyLinkedList();
+        newList.head = new DoublyLinkedNode(newArr[newArr.length - 1]);  //tail -> head
+        // let rightPointer = this.tail;
+        // let leftPointer = this.head;
+        curr = newList.head;
+        let previousNode = null
+        for (let i = newArr.length - 2; i >= 0; i--) {
+            curr.prev = previousNode;
+            curr.next = new SinglyLinkedNode(newArr[i]);  //create new node with value from newArr
+            previousNode = curr;
+            curr = curr.next;
+        }
+        return newList
         // Write your hypothesis on the time complexity of this method here
     }
 
