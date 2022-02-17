@@ -179,8 +179,6 @@ class DoublyLinkedList {
     }
 
     reverse() {
-
-
         let newArr = []
         let curr = this.head;
         while (curr) {
@@ -191,8 +189,6 @@ class DoublyLinkedList {
         //create new list with values from old list
         let newList = new DoublyLinkedList();
         newList.head = new DoublyLinkedNode(newArr[newArr.length - 1]);  //tail -> head
-        // let rightPointer = this.tail;
-        // let leftPointer = this.head;
         curr = newList.head;
         let previousNode = null
         for (let i = newArr.length - 2; i >= 0; i--) {
@@ -206,8 +202,25 @@ class DoublyLinkedList {
     }
 
     reverseInPlace() {
+        let rightPointer = this.tail;
+        let leftPointer = this.head;
 
+        while (rightPointer !== leftPointer) {
+            // console.log("left: ", leftPointer.value)
+            // console.log("right: ", rightPointer.value)
+            // console.log("------")
+            let rightVal = rightPointer.value;
+            let leftVal = leftPointer.value;
+            leftPointer.value = rightVal;
+            rightPointer.value = leftVal;
+            // console.log("left: ", leftPointer.value)
+            // console.log("right: ", rightPointer.value)
 
+            rightPointer = rightPointer.prev;
+            if(leftPointer === rightPointer) return
+            leftPointer = leftPointer.next;
+
+        }
         // Write your hypothesis on the time complexity of this method here
     }
 }
